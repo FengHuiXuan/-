@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 500px;
+				
+				height: 500px;
+				background:yellow;
+				margin: 50px auto;
+				position: relative;
+				
+			}
+			.box1 div{
+				width: 50px;
+				background:red;
+				position: absolute;
+				left: 0;
+			}
+			
+			.box1{
+				width: 50px;
+				height: 500px;
+				-background:#008000;
+				position: absolute;
+				top: 0;
+				left: 400px;
+			}
+			#bird{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				background: blueviolet;
+				left: 150px;
+				top: 100px;
+				border-radius: 15px;
+			}
+		</style>
+		<script src="utils.js"></script>		
+	</head>
+	<body>
+		<div id="box">
+			<span id="bird"></span>
+			<!--<div style="height: 100px; top: 0;"></div>
+			<div style="height: 100px; bottom: 0;"></div>-->
+		</div>
+		
+		<script>
+			
+			let box = $('#box');
+			let bird = $('#bird');
+			
+			
+			mTween(bird,{top:500},1000,'easeIn')
+			
+			document.onclick = function(){
+				let  n = bird.offsetTop
+				clearInterval(bird.timer);
+				mTween(bird,{top:n-150},300,'easeOut',function(){
+					mTween(bird,{top:500},1000,'easeIn',function(){
+						
+					},function(){
+					let d = box.querySelectorAll('.true')
+				
+					for (var i = 0; i < d.length; i++) {
+					
+					if(collision(bird,d[i])){
+						alert(1)
+					}
+					
+					}
+				})
+				},function(){
+					let d = box.querySelectorAll('.true')
+				
+					for (var i = 0; i < d.length; i++) {
+					
+					if(collision(bird,d[i])){
+						alert(1)
+					}
+					
+					}
+				})
+				
+				
+				
+			}
+			
+			function fn(box){
+				mTween(box,{left:0},2000,'linear',function(){
+					box.remove()
+				})
+			}
+			
+			console.log(parseInt(Math.random()*300))
+			
+			f()
+			
+			function f(){
+				setInterval(function(){
+				let box1 = document.createElement('div');
+				let n = parseInt(Math.random()*300)
+				box1.className = 'box1'	
+				
+				box1.innerHTML = `<div class="true" style="height: ${n}px; top: 0;"></div>
+								<div class="true" style="height: ${300-n}px; bottom: 0;"></div>`
+								
+				box.appendChild(box1)
+				fn(box1)
+				},1200)
+			}
+			
+				function collision(obj1,obj2){  //碰撞函数
+					var obj1Rect = obj1.getBoundingClientRect();	
+					
+					var obj2Rect = obj2.getBoundingClientRect();	
+				
+					if(obj1Rect.right < obj2Rect.left || obj1Rect.bottom < obj2Rect.top || obj1Rect.left > obj2Rect.right || obj1Rect.top > obj2Rect.bottom){
+						return false;
+					}else{
+						return true;
+					}
+				}
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
