@@ -51,41 +51,28 @@
 			
 			let box = $('#box');
 			let bird = $('#bird');
-			
-			
 			mTween(bird,{top:500},1000,'easeIn')
-			
 			document.onclick = function(){
 				let  n = bird.offsetTop
 				clearInterval(bird.timer);
 				mTween(bird,{top:n-150},300,'easeOut',function(){
-					mTween(bird,{top:500},1000,'easeIn',function(){
-						
-					},function(){
+					mTween(bird,{top:500},1000,'easeIn',function(){},function(){
 					let d = box.querySelectorAll('.true')
-				
 					for (var i = 0; i < d.length; i++) {
-					
-					if(collision(bird,d[i])){
-						alert(1)
-					}
-					
+						if(collision(bird,d[i])){
+							alert(1)
+						}
 					}
 				})
 				},function(){
 					let d = box.querySelectorAll('.true')
-				
 					for (var i = 0; i < d.length; i++) {
-					
-					if(collision(bird,d[i])){
-						alert(1)
-					}
+						if(collision(bird,d[i])){
+							alert(1)
+						}
 					
 					}
 				})
-				
-				
-				
 			}
 			
 			function fn(box){
@@ -93,9 +80,7 @@
 					box.remove()
 				})
 			}
-			
-			console.log(parseInt(Math.random()*300))
-			
+		
 			f()
 			
 			function f(){

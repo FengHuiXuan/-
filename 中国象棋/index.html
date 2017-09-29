@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     .box2{
+        width:507px;
+        height:567px;
+       
+        background:url("./img/bg.png") no-repeat ;
+        margin:0 auto;
+      }
+    #box{
+        width:507px;
+        height:567px;
+    
+        position:relative;
+        cursor:pointer;
+        box-sizing: border-box;
+    }
+
+    #box>div{
+        width:54px;
+        height:54px;
+        position:absolute;
+        background:url("./img/b_c.png") no-repeat;
+        
+        top:0;
+        left: 0;
+    }
+    #box>div:hover{box-shadow:1px 2px 5px rgba(116,95,59,0.7);}
+    #chess_border{
+        width:36px;
+        height:36px;
+        background:url("../images/chess_boder.png") no-repeat;
+        position:absolute;
+    }
+    p{
+        padding: 0;
+        margin: 0;
+    }
+    #box p {
+        width:54px;
+        height:54px;
+        position:absolute;
+        top:0;
+        left: 0;
+    }
+    div.activeR:after{
+        content: '';
+        display: inline-block;
+        width:54px;
+        height:54px;
+        background: url("./img/r_box.png");
+        background-size: 54px 54px;
+    }
+    div.activeB:after{
+        content: '';
+        display: inline-block;
+        width:54px;
+        height:54px;
+        background: url("./img/b_box.png") ;
+        background-size: 54px 54px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="box2">
+        <div id='box'>
+        
+        </div>
+
+    </div>
+    
+   <script src="./js/jintao.js"></script>
+</body>
+</html>
